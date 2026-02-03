@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | RAYCODE</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/JS/JavaScript.js">
+</head>
+
+<div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Оставить заявку</h2>
+        <p>Заполните форму, и я свяжусь с вами в ближайшее время для обсуждения деталей.</p>
+        
+        <form class="order-form">
+            <div class="input-group">
+                <label>Ваше имя</label>
+                <input type="text" placeholder="Иван Иванов" required>
+            </div>
+            <div class="input-group">
+                <label>Ваш Email или Телефон</label>
+                <input type="text" placeholder="example@mail.ru" required>
+            </div>
+            <div class="input-group">
+                <label>О проекте</label>
+                <textarea placeholder="Опишите вкратце вашу задачу..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Отправить данные</button>
+        </form>
+    </div>
+</div>
+
+<body>
+    <header class="header">
+        <a href="/index.html" class="logo">RAYCODE</a>
+        <nav class="nav-menu">
+            <a href="/index.html">Проекты</a>
+            <a href="/price.html">Цены</a>
+            <a href="/contacts.html" class="active">Контакты</a>
+        </nav>
+        <button class="btn-order">Заказать</button>
+    </header>
+
+    <section class="section-welcome">
+        <div class="welcome-content">
+            <h1>СВЯЗАТЬСЯ СО МНОЙ</h1>
+            <p class="subtitle">Давайте создадим нечто исключительное</p>
+
+            <div class="contacts-container">
+                <div class="contact-item">
+                    <span>Почта:</span>
+                    <a href="mailto:rcode2223@gmail.com">rcode2223@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>Телефон:</span>
+                    <a href="tel:+79505557990">8 (950) 555-79-90</a>
+                </div>
+            </div>
+
+            <div class="social-icons">
+                <a href="https://vk.com/maxray_me" target="_blank" class="icon vk" title="Вконтакте">VK</a>
+                <a href="https://web.telegram.org/a/" target="_blank" class="icon tg" title="Телеграм">TG</a>
+                <a href="#" class="icon wa" title="Ватсап">WA</a>
+            </div>
+
+            <div class="sales-text">
+                <p>Ваш проект заслуживает большего, чем просто «работающий код». Я предлагаю техническую эстетику, которая конвертирует посетителей в клиентов. <strong>RAYCODE</strong> — это про надежность, когда каждый пиксель на своем месте, а сервер отвечает мгновенно. Напишите мне сегодня, и завтра ваш бизнес зазвучит по-новому в цифровом пространстве.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Оставить заявку</h2>
+        <p>Заполните форму, и я свяжусь с вами в ближайшее время для обсуждения деталей.</p>
+        
+        <form class="order-form">
+            <div class="input-group">
+                <label>Ваше имя</label>
+                <input type="text" placeholder="Иван Иванов" required>
+            </div>
+            <div class="input-group">
+                <label>Ваш Email или Телефон</label>
+                <input type="text" placeholder="example@mail.ru" required>
+            </div>
+            <div class="input-group">
+                <label>О проекте</label>
+                <textarea placeholder="Опишите вкратце вашу задачу..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Отправить данные</button>
+        </form>
+    </div>
+</div>
+
+    <script>
+    const modal = document.getElementById("orderModal");
+    const closeBtn = document.querySelector(".close-modal");
+
+    // Выбираем ВСЕ кнопки: и в шапке, и в тарифах
+    const allOrderButtons = document.querySelectorAll('.btn-order, .btn-select');
+
+    // Перебираем каждую кнопку и вешаем событие клика
+    allOrderButtons.forEach(button => {
+        button.onclick = function(e) {
+            e.preventDefault(); // Предотвращаем перезагрузку, если это ссылка
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden"; // Блокируем скролл фона
+        }
+    });
+
+    // Закрытие на крестик
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // Закрытие при клике вне окна
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+</script>
+
+</body>
+</html>

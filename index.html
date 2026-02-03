@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAYCODE | Front-end разработка</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/JS/JavaScript.js">
+</head>
+
+<body>
+    <header class="header">
+        <a href="/index.html" class="logo">RAYCODE</a>
+        
+        <nav class="nav-menu">
+            <a href="#">Проекты</a>
+            <a href="/price.html">Цены</a>
+            <a href="/contacts.html">Контакты</a>
+        </nav>
+
+        <button id="openModal" class="btn-order">Заказать</button>
+    </header>
+
+    <section class="section-welcome">
+        <div class="welcome-content">
+            <h1>ЗАКАЗАТЬ FRONT</h1>
+            <p class="subtitle">Разработка и оптимизация веб-интерфейсов | RAYCODE</p>
+            
+            <div class="description">
+                <p>Специализируюсь на создании современных сайтов с упором на производительность и чистоту кода. 
+                  Помогаю бизнесу масштабироваться через качественную техническую реализацию.
+                </p>
+                <h3>Мастерство и инструменты:</h3>
+                <ul>
+                    <li><strong>Верстка и логика:</strong> HTML/CSS/JS — создаю структуру, которая не рассыпается.</li>
+                    <li><strong>WordPress-магия:</strong> Избавляю сайты от «проклятий» (вирусов), ускоряю работу и добавляю функционал.</li>
+                    <li><strong>Рефакторинг:</strong> Берусь за самые запущенные случаи и привожу верстку в порядок.</li>
+                </ul>
+                
+                <p class="motto">Я подхожу к задачам с математической точностью Грейс Хоппер и энергией стартапа. 
+                  Если вам нужен партнер, который вникнет в задачу и сделает её на 101% — вы по адресу.</p>
+            </div>
+            
+            <a href="/contacts.html"><button class="btn-cta">Связаться со мной</button></a>
+        </div>
+    </section>
+
+    <div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Оставить заявку</h2>
+        <p>Заполните форму, и я свяжусь с вами в ближайшее время для обсуждения деталей.</p>
+        
+        <form class="order-form">
+            <div class="input-group">
+                <label>Ваше имя</label>
+                <input type="text" placeholder="Иван Иванов" required>
+            </div>
+            <div class="input-group">
+                <label>Ваш Email или Телефон</label>
+                <input type="text" placeholder="example@mail.ru" required>
+            </div>
+            <div class="input-group">
+                <label>О проекте</label>
+                <textarea placeholder="Опишите вкратце вашу задачу..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Отправить данные</button>
+        </form>
+    </div>
+</div>
+
+    <script>
+    const modal = document.getElementById("orderModal");
+    const closeBtn = document.querySelector(".close-modal");
+
+    // Выбираем ВСЕ кнопки: и в шапке, и в тарифах
+    const allOrderButtons = document.querySelectorAll('.btn-order, .btn-select');
+
+    // Перебираем каждую кнопку и вешаем событие клика
+    allOrderButtons.forEach(button => {
+        button.onclick = function(e) {
+            e.preventDefault(); // Предотвращаем перезагрузку, если это ссылка
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden"; // Блокируем скролл фона
+        }
+    });
+
+    // Закрытие на крестик
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // Закрытие при клике вне окна
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+</script>
+
+</body>
+</html>

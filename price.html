@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цены | RAYCODE</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/JS/JavaScript.js">
+</head>
+
+<div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Оставить заявку</h2>
+        <p>Заполните форму, и я свяжусь с вами в ближайшее время для обсуждения деталей.</p>
+        
+        <form class="order-form">
+            <div class="input-group">
+                <label>Ваше имя</label>
+                <input type="text" placeholder="Иван Иванов" required>
+            </div>
+            <div class="input-group">
+                <label>Ваш Email или Телефон</label>
+                <input type="text" placeholder="example@mail.ru" required>
+            </div>
+            <div class="input-group">
+                <label>О проекте</label>
+                <textarea placeholder="Опишите вкратце вашу задачу..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Отправить данные</button>
+        </form>
+    </div>
+</div>
+
+<body>
+    <header class="header">
+        <a href="/index.html" class="logo">RAYCODE</a>
+        <nav class="nav-menu">
+            <a href="#">Проекты</a>
+            <a href="/price.html" class="active">Цены</a>
+            <a href="/contacts.html">Контакты</a>
+        </nav>
+        <button class="btn-order">Заказать</button>
+    </header>
+
+    <section class="section-welcome section-prices">
+        <div class="welcome-content">
+            <h1>ТАРИФЫ И УСЛУГИ</h1>
+            <p class="subtitle">Прозрачное ценообразование для вашего бизнеса</p>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h2>Базовый</h2>
+                    <div class="cost">5 000 ₽</div>
+                    <p class="card-desc">Идеальный старт для малого бизнеса или личного бренда. Создание легкого и быстрого лендинга.</p>
+                    <ul class="card-features">
+                        <li>Адаптивная верстка</li>
+                        <li>Одна целевая страница</li>
+                        <li>Базовая SEO-оптимизация</li>
+                        <li>Срок: до 3-х дней</li>
+                    </ul>
+                    <button class="btn-select">Выбрать</button>
+                </div>
+
+                <div class="price-card featured">
+                    <h2>Стандарт</h2>
+                    <div class="cost">15 000 ₽</div>
+                    <p class="card-desc">Оптимальное решение для корпоративных сайтов с расширенным функционалом и логикой.</p>
+                    <ul class="card-features">
+                        <li>До 5 уникальных страниц</li>
+                        <li>Сложные формы обратной связи</li>
+                        <li>Интеграция с мессенджерами</li>
+                        <li>Срок: до 7 дней</li>
+                    </ul>
+                    <button class="btn-select">Выбрать</button>
+                </div>
+
+                <div class="price-card">
+                    <h2>Premium</h2>
+                    <div class="cost">от 30 000 ₽</div>
+                    <p class="card-desc">Полноценный веб-продукт с индивидуальным подходом и глубокой технической проработкой.</p>
+                    <ul class="card-features">
+                        <li>Индивидуальный дизайн</li>
+                        <li>Сложная JS-анимация</li>
+                        <li>Подключение CMS (WordPress)</li>
+                        <li>Приоритетная поддержка</li>
+                    </ul>
+                    <button class="btn-select">Выбрать</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Оставить заявку</h2>
+        <p>Заполните форму, и я свяжусь с вами в ближайшее время для обсуждения деталей.</p>
+        
+        <form class="order-form">
+            <div class="input-group">
+                <label>Ваше имя</label>
+                <input type="text" placeholder="Иван Иванов" required>
+            </div>
+            <div class="input-group">
+                <label>Ваш Email или Телефон</label>
+                <input type="text" placeholder="example@mail.ru" required>
+            </div>
+            <div class="input-group">
+                <label>О проекте</label>
+                <textarea placeholder="Опишите вкратце вашу задачу..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Отправить данные</button>
+        </form>
+    </div>
+</div>
+
+    <script>
+    const modal = document.getElementById("orderModal");
+    const closeBtn = document.querySelector(".close-modal");
+
+    // Выбираем ВСЕ кнопки: и в шапке, и в тарифах
+    const allOrderButtons = document.querySelectorAll('.btn-order, .btn-select');
+
+    // Перебираем каждую кнопку и вешаем событие клика
+    allOrderButtons.forEach(button => {
+        button.onclick = function(e) {
+            e.preventDefault(); // Предотвращаем перезагрузку, если это ссылка
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden"; // Блокируем скролл фона
+        }
+    });
+
+    // Закрытие на крестик
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // Закрытие при клике вне окна
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+</script>
+
+</body>
+</html>
